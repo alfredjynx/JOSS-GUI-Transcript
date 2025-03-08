@@ -30,8 +30,9 @@ bibliography: paper.bib
 The CM Pipeline is a software tool used to guarantee well-connectedness in graph networks during a clustering process. The definition os well-connectness as well as the use cases for the CM Pip
 
 # Statement of need -
-- Explain how some researchers are interested in clustering but no programming knowledge, therefore can't use the already available software
+- Explain how some researchers are interested in clustering but have no programming knowledge, therefore can't use the already available software
 - Also, how the GUI is a way of introducing new people to the idea of clustering
+- Easily accessible and can serve asa teaching tool
 
 # The GUI - 
 - Go over the main use cases, example usage
