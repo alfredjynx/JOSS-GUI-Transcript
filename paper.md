@@ -72,10 +72,9 @@ Next steps include the containerization of the GUI usiung Docker. This way, a si
 
 # Acknowledgements
 
-I need to personally thank Min for not wanting to kill me for procrastinating heavily during the creation of the GUI, thank you.
-
-- Thank Min for not wanting to kill me after this whole process
 
 # References
 
-Ramavarapu et al., (2024). CM++ - A Meta-method for Well-Connected Community Detection. Journal of Open Source Software, 9(93), 6073, https://doi.org/10.21105/joss.06073
+1. Ramavarapu et al., (2024). CM++ - A Meta-method for Well-Connected Community Detection. Journal of Open Source Software, 9(93), 6073, https://doi.org/10.21105/joss.06073
+
+2. Park, M. et al. (2024). Identifying Well-Connected Communities in Real-World and Synthetic Networks. In: Cherifi, H., Rocha, L.M., Cherifi, C., Donduran, M. (eds) Complex Networks & Their Applications XII. COMPLEX NETWORKS 2023. Studies in Computational Intelligence, vol 1142. Springer, Cham. https://doi.org/10.1007/978-3-031-53499-7_1
