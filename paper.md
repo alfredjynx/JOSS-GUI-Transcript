@@ -8,19 +8,22 @@ authors:
   - name: Joao Alfredo Cardoso Lamy
     orcid: 0009-0005-4744-4754
     equal-contrib: true
-    affiliation: 2
+    affiliation: 1
   - name: Tomas Alessi
     equal-contrib: true
-    affiliation: 2
+    affiliation: 1
   - name: Minhyuk Park
-    affiliation: 1
+    affiliation: 2
+  - name: Tandy Warnow
+    affiliation: 2
   - name: George Chacko
-    affiliation: 1
+    affiliation: 2
 affiliations:
- - name: Department of Computer Science, University of Illinois Urbana-Champaign, IL 61801, USA
+ - name: Insper Instituto de Ensino e Pesquisa, Sao Paulo, Brazil
    index: 1
- - name: Insper Instituto de Ensino e Pesquisa, Sao Paulo, Brazi
+ - name: Siebel School of Computing and Data Science, University of Illinois Urbana-Champaign, IL 61801, USA
    index: 2
+
 
 date: 7 March 2025
 bibliography: paper.bib
