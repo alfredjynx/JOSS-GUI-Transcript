@@ -30,21 +30,15 @@ bibliography: paper.bib
 ---
 
 # Introduction -
-This projects incorporates the CM Pipeline (*1*) into a user-friendly graphic user interface (GUI), aiming to simplify the usage of the CM Pipeline to the end user. 
+This project incorporates the CM Pipeline (*1*) into a graphical user interface (GUI), for the purpose of making the Connectivity Modifier(CM) pipeline accessible to non-expert users who are not comfortable with command line operations.
 
 # The CM Pipeline - 
 
-The CM Pipeline was created to guarantee well-connectedness in networks during a clustering/community detection process. This is a graph partitioning problem, with a network being inputted and the main objective is separating nodes into communities, which may also be reffered as clusters. 
-
-The well-connectedness of a community is measured by the min-cut, the minimum number of edges (connections between nodes) that need to be discarded in order for the cluster to be split. If the min-cut is above a threshold, the community is considered well-connected. If it's not, then the community is split and the clustering process continues untill every community is well-connected. The user of the CM Pipeline can specify a min cut threshold, deciding what should count as a well connected community. For this GUI, this option has not been implemented, setting the min-cut threshold as $log_{10}n$, with $n$ being the number of nodes in the community. 
+CM was developed to enforce well-connectedness in clusters generated during a community detection process (*2*) and implemented as a pipeline. Well-connectedness of a cluster is defined by its min-cut, the minimum number of edges (connections between nodes) that need to be discarded in order for the cluster to be split. If the min-cut is above a user-specified threshold, a cluster is considered well-connected. If not, then the min-cut is applied and the products of the cut (two clusters) are re-evaluated until every community is well-connected. The default threshold is the mild standard of $log_{10}n$, with $n$ being the number of nodes in the community. 
 
 # Statement of need -
 
-Clustering, as a concept, can be beneficial in various ways and in various different settings. A researcher in biology can use clustering to be able to map out the relationships between different species. Another, in a medical field, can map out the spread of diseases in a certain subset of a population. 
-
-In those cases, the researchers are not in a tech-centered field of study, so they might not have programming knowledge. This may prohibit them from using already available clustering software. The GUI serves as a way of negating this problem for the CM Pipeline specifically.
-
-Also, this may be an introduction to clustering to many who don't have data science experience.
+Clustering has broad applications. In some cases, its practitioners may not have adequate programming skills to use available clustering software. A user-friendly GUI lowers the barrier for entry and allow simple exploratory analysis. This GUI is also intended to be useful as an instructional tool for novice users. 
 
 # The GUI - 
 
