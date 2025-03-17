@@ -46,11 +46,28 @@ Clustering has broad applications. In some cases, its practitioners may not have
 
 # The GUI - 
 
-The GUI has support for 4 different clustering algorithms: Leiden-CPM (Constant Potts Model) [@traag2019louvain] [@traag2011narrow], Leiden-Modularity [@traag2019louvain], Infomap [@Rosvall2008] and SBM [@peixoto_graph-tool_2014]. These algorithms will not be explained in this paper. 
+![GUI Setup for Leiden-CPM with File Upload. \label{fig:Leiden-CPM}](./imgs/Leiden-CPM.png)
 
-Each one has their own set of parameters that must be specified before running the pipeline. They vary from algorithm to algorithm, with some having more options than others. Each algorithms parameters are explained in the CM Pipeline documentation and in the CM-GUI documentation.
+The GUI has support for 4 different clustering algorithms \autoref{fig:Algorithms}: Leiden-CPM (Constant Potts Model) [@traag2019louvain; @traag2011narrow] \autoref{fig:Leiden-CPM}, Leiden-Modularity [@traag2019louvain], Infomap [@Rosvall2008] and SBM [@peixoto_graph-tool_2014]. These algorithms will not be explained in this paper. 
 
-Files can be either uploaded or have their relative file path given. Additionally, the software has it's own toy network for users to experient on, that is the "Default" option in the selection box.
+![GUI Algorithms. \label{fig:Algorithms}](./imgs/Algorithms.png)
+
+Each one has their own set of parameters that must be specified before running the pipeline. They vary from algorithm to algorithm, with some having more options than others. Here are example images setup for File Upload for each algorithm.
+
+![GUI Setup for Leiden-MOD with File Upload. \label{fig:Leiden-MOD}](./imgs/Leiden-MOD.png)
+
+![GUI Setup for Infomap with File Upload. \label{fig:Infomap}](./imgs/Infomap.png)
+
+![GUI Setup for SBM with File Upload. \label{fig:SBM}](./imgs/SBM.png)
+
+
+ Each algorithms parameters are explained in the CM Pipeline documentation and in the CM-GUI documentation.
+
+Files can be either uploaded or have their relative file path given \autoref{fig:File-Settings}. 
+
+![GUI File settings. \label{fig:File-Settings}](./imgs/FileReadOptions.png)
+
+Additionally, the software has it's own toy network for users to experient on, that is the "Default" option in the selection box.
 
 The results can be downloaded at the end of the run by clicking the "Download data as CSV" button. 
 
