@@ -1,5 +1,5 @@
 ---
-title: 'CM-GUI: User-Friendly application of the CM Pipeline'
+title: 'Well Connected Clustering GUI'
 tags:
   - Python
   - Data Science
@@ -34,11 +34,15 @@ bibliography: paper.bib
 ---
 
 # Introduction -
-This project incorporates the CM Pipeline [@Ramavarapu2024] into a graphical user interface (GUI), for the purpose of making the Connectivity Modifier(CM) pipeline accessible to non-expert users who are not comfortable with command line operations.
+Clustering networks is a common step in many applications, but clusters may not satisfy desired degrees of "well-connectedness". Here we describe a GUI that allows the user to take a clustering of a network and modify the clusters so that they meet the desired well-connectedness bound.  The techniques that are enabled include the Connectivity Modifier (CM) method [@Ramavarapu2024] and the simpler variant, Well-Connected Clusters (WCC). The purpose of this GUI is to make these tools accessible to non-expert users who are not comfortable with command line operations.
 
 # The CM Pipeline - 
 
 CM was developed to enforce well-connectedness in clusters generated during a community detection process [@park2023wellconnectedcommunitiesrealworldsynthetic] and implemented as a pipeline. Well-connectedness of a cluster is defined by its min-cut, the minimum number of edges (connections between nodes) that need to be discarded in order for the cluster to be split. If the min-cut is above a user-specified threshold, a cluster is considered well-connected. If not, then the min-cut is applied and the products of the cut (two clusters) are re-evaluated until every community is well-connected. The default threshold is the mild standard of $log_{10}n$, with $n$ being the number of nodes in the community. 
+
+#The WCC Pipeline - 
+
+WCC is a simple modificatino of CM that omits the reclustering step.  Thus, clusters are repeatedly split into two clusters until each cluster satisfies the required connectivity bound. (CITE)
 
 # Statement of need -
 
@@ -48,7 +52,7 @@ Clustering has broad applications. In some cases, its practitioners may not have
 
 ![GUI Setup for Leiden-CPM with File Upload. \label{fig:Leiden-CPM}](./imgs/Leiden-CPM.png)
 
-The GUI has support for 4 different clustering algorithms \autoref{fig:Algorithms}: Leiden-CPM (Constant Potts Model) [@traag2019louvain; @traag2011narrow] \autoref{fig:Leiden-CPM}, Leiden-Modularity [@traag2019louvain], Infomap [@Rosvall2008] and SBM [@peixoto_graph-tool_2014]. These algorithms will not be explained in this paper. 
+The GUI has support for 4 different clustering algorithms \autoref{fig:Algorithms}: Leiden-CPM (Constant Potts Model) [@traag2019louvain; @traag2011narrow] \autoref{fig:Leiden-CPM}, Leiden-Modularity [@traag2019louvain], Infomap [@Rosvall2008] and Stochastic Block Models (SBM) [@peixoto_graph-tool_2014]. These algorithms will not be explained in this paper. 
 
 ![GUI Algorithms. \label{fig:Algorithms}](./imgs/Algorithms.png)
 
