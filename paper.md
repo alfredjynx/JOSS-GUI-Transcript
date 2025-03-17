@@ -33,11 +33,11 @@ bibliography: paper.bib
 ---
 
 # Introduction -
-This project incorporates the CM Pipeline (*1*) into a graphical user interface (GUI), for the purpose of making the Connectivity Modifier(CM) pipeline accessible to non-expert users who are not comfortable with command line operations.
+This project incorporates the CM Pipeline [@Ramavarapu2024] into a graphical user interface (GUI), for the purpose of making the Connectivity Modifier(CM) pipeline accessible to non-expert users who are not comfortable with command line operations.
 
 # The CM Pipeline - 
 
-CM was developed to enforce well-connectedness in clusters generated during a community detection process (*2*) and implemented as a pipeline. Well-connectedness of a cluster is defined by its min-cut, the minimum number of edges (connections between nodes) that need to be discarded in order for the cluster to be split. If the min-cut is above a user-specified threshold, a cluster is considered well-connected. If not, then the min-cut is applied and the products of the cut (two clusters) are re-evaluated until every community is well-connected. The default threshold is the mild standard of $log_{10}n$, with $n$ being the number of nodes in the community. 
+CM was developed to enforce well-connectedness in clusters generated during a community detection process [@park2023wellconnectedcommunitiesrealworldsynthetic] and implemented as a pipeline. Well-connectedness of a cluster is defined by its min-cut, the minimum number of edges (connections between nodes) that need to be discarded in order for the cluster to be split. If the min-cut is above a user-specified threshold, a cluster is considered well-connected. If not, then the min-cut is applied and the products of the cut (two clusters) are re-evaluated until every community is well-connected. The default threshold is the mild standard of $log_{10}n$, with $n$ being the number of nodes in the community. 
 
 # Statement of need -
 
@@ -45,7 +45,7 @@ Clustering has broad applications. In some cases, its practitioners may not have
 
 # The GUI - 
 
-The GUI has support for 4 different clustering algorithms: Leiden-CPM (Constant Potts Model) (*3*) (*4*), Leiden-Modularity (*3*), Infomap (*5*) and SBM (*6*). These algorithms will not be explained in this paper. 
+The GUI has support for 4 different clustering algorithms: Leiden-CPM (Constant Potts Model) [@traag2019louvain] [@traag2011narrow], Leiden-Modularity [@traag2019louvain], Infomap [@Rosvall2008] and SBM [@peixoto_graph-tool_2014]. These algorithms will not be explained in this paper. 
 
 Each one has their own set of parameters that must be specified before running the pipeline. They vary from algorithm to algorithm, with some having more options than others. Each algorithms parameters are explained in the CM Pipeline documentation and in the CM-GUI documentation.
 
