@@ -13,10 +13,13 @@ authors:
     equal-contrib: true
     affiliation: 1
   - name: Minhyuk Park
+    orcid: 0000-0002-8676-7565
     affiliation: 2
   - name: Tandy Warnow
+    orcid: 0000-0001-7717-3514
     affiliation: 2
   - name: George Chacko
+    orcid: 0000-0002-2127-1892
     affiliation: 2
 affiliations:
  - name: Insper Instituto de Ensino e Pesquisa, Sao Paulo, Brazil
