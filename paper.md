@@ -40,9 +40,9 @@ Clustering networks is a common step in many applications, but clusters may not 
 
 CM was developed to enforce well-connectedness in clusters generated during a community detection process [@park2023wellconnectedcommunitiesrealworldsynthetic] and implemented as a pipeline. Well-connectedness of a cluster is defined by its min-cut, the minimum number of edges (connections between nodes) that need to be discarded in order for the cluster to be split. If the min-cut is above a user-specified threshold, a cluster is considered well-connected. If not, then the min-cut is applied and the products of the cut (two clusters) are re-evaluated until every community is well-connected. The default threshold is the mild standard of $log_{10}n$, with $n$ being the number of nodes in the community. 
 
-#The WCC Pipeline - 
+# The WCC Pipeline - 
 
-WCC is a simple modificatino of CM that omits the reclustering step.  Thus, clusters are repeatedly split into two clusters until each cluster satisfies the required connectivity bound. (CITE)
+WCC is a simple modification of CM that omits the reclustering step.  Thus, clusters are repeatedly split into two clusters until each cluster satisfies the required connectivity bound. (CITE)
 
 # Statement of need -
 
@@ -65,7 +65,7 @@ Each one has their own set of parameters that must be specified before running t
 ![GUI Setup for SBM with File Upload. \label{fig:SBM}](./imgs/SBM.png)
 
 
- Each algorithms parameters are explained in the CM Pipeline documentation and in the CM-GUI documentation.
+Each algorithm's parameters are explained in the CM Pipeline documentation and in the CM-GUI documentation.
 
 Files can be either uploaded or have their relative file path given \autoref{fig:File-Settings}. 
 
@@ -77,7 +77,7 @@ The results can be downloaded at the end of the run by clicking the "Download da
 
 # Running the GUI
 
-The GUI consists of a front-end and a back-end. This was set up this way to enable remotedly hosting the GUI, making it a website. This is also why there is an option to . This, however, does not mean the GUI is hosted currently. 
+The GUI consists of a front-end and a back-end. This was set up this way to enable remotedly hosting the GUI, making it a website. This is also why there is an option to download the end file. This, however, does not mean the GUI is currently hosted on any machine. 
 
 The front-end is implemented in streamlit, and the back-end in FastAPI. Those packages where chosen because of their ease of use and modularity.
 
@@ -88,7 +88,7 @@ After the setup is done, the user can run the CM Pipeline through the front-end.
 
 # Future Installments
 
-Next steps include the containerization of the GUI usiung Docker. This way, a single command is needed to run it, making it easier for local usage.
+Next steps include the containerization of the GUI using Docker. This way, a single command is needed to run it, making it easier for local usage.
 
 
 # References
