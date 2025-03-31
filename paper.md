@@ -56,14 +56,7 @@ The GUI has support for 4 different clustering algorithms \autoref{fig:Algorithm
 
 ![GUI Algorithms. \label{fig:Algorithms}](./imgs/Algorithms.png)
 
-Each one has their own set of parameters that must be specified before running the pipeline. They vary from algorithm to algorithm, with some having more options than others. Here are example images setup for File Upload for each algorithm.
-
-![GUI Setup for Leiden-MOD with File Upload. \label{fig:Leiden-MOD}](./imgs/Leiden-MOD.png)
-
-![GUI Setup for Infomap with File Upload. \label{fig:Infomap}](./imgs/Infomap.png)
-
-![GUI Setup for SBM with File Upload. \label{fig:SBM}](./imgs/SBM.png)
-
+Each one has their own set of parameters that must be specified before running the pipeline. They vary from algorithm to algorithm, with some having more options than others. 
 
 Each algorithm's parameters are explained in the CM Pipeline documentation and in the CM-GUI documentation.
 
@@ -73,7 +66,7 @@ Files can be either uploaded or have their relative file path given \autoref{fig
 
 Additionally, the software has it's own toy network for users to experient on, that is the "Default" option in the selection box.
 
-The results can be downloaded at the end of the run by clicking the "Download data as CSV" button. 
+The results can be downloaded at the end of the run by clicking the "Download data as CSV" button. A statistical analysis is also provided and can be downloaded using the "Download stats as CSV".
 
 # Running the GUI
 
@@ -81,14 +74,14 @@ The GUI consists of a front-end and a back-end. This was set up this way to enab
 
 The front-end is implemented in streamlit, and the back-end in FastAPI. Those packages where chosen because of their ease of use and modularity.
 
-To run the GUI, the user must clone the repository and run both the front-end adn the back-end locally. Specified instructions and setup are explained in detail in the documentation for the GUI.
+To run the GUI, the user must clone the repository and run both the front-end and the back-end locally. Specified instructions and setup are explained in detail in the documentation for the GUI. There is also an option of running a containerized version of the GUI in Docker. The instructions are presented in the README of the repo and the code is in a branch called "Docker".
 
 After the setup is done, the user can run the CM Pipeline through the front-end.
 
 
 # Future Installments
 
-Next steps include the containerization of the GUI using Docker. This way, a single command is needed to run it, making it easier for local usage.
+Next steps include uploading an existing clustering to the GUI and using it in the CM Pipeline.
 
 
 # References
