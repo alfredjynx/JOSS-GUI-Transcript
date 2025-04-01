@@ -86,7 +86,7 @@ The GUI's front-end can be accessed through the same port and URL as running it 
 
 # Future Installments
 
-Next steps include uploading an existing clustering to the GUI and using it in the CM Pipeline.
+Next steps include uploading an existing clustering to the GUI and using it in the CM Pipeline, as well as replacing the current WCC and CC options for the same post treatment in the CM++ version.
 
 
 # References
