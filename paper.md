@@ -50,9 +50,13 @@ Clustering has broad applications. In some cases, its practitioners may not have
 
 # The GUI - 
 
+The GUI consists of a front-end and a back-end. This was set up this way to enable remotedly hosting the GUI, making it a website. This is also why there is an option to download the end file. This, however, does not mean the GUI is currently hosted on any machine. 
+
+The front-end is implemented in streamlit, and the back-end in FastAPI. Those packages where chosen because of their ease of use and modularity.
+
 ![GUI Setup for Leiden-CPM with File Upload. \label{fig:Leiden-CPM}](./imgs/Leiden-CPM.png)
 
-The GUI has support for 4 different clustering algorithms \autoref{fig:Algorithms}: Leiden-CPM (Constant Potts Model) [@traag2019louvain; @traag2011narrow] \autoref{fig:Leiden-CPM}, Leiden-Modularity [@traag2019louvain], Infomap [@Rosvall2008] and Stochastic Block Models (SBM) [@peixoto_graph-tool_2014]. These algorithms will not be explained in this paper. 
+It has support for 4 different clustering algorithms \autoref{fig:Algorithms}: Leiden-CPM (Constant Potts Model) [@traag2019louvain; @traag2011narrow] \autoref{fig:Leiden-CPM}, Leiden-Modularity [@traag2019louvain], Infomap [@Rosvall2008] and Stochastic Block Models (SBM) [@peixoto_graph-tool_2014]. These algorithms will not be explained in this paper. 
 
 ![GUI Algorithms. \label{fig:Algorithms}](./imgs/Algorithms.png)
 
@@ -68,16 +72,17 @@ Additionally, the software has it's own toy network for users to experient on, t
 
 The results can be downloaded at the end of the run by clicking the "Download data as CSV" button. A statistical analysis is also provided and can be downloaded using the "Download stats as CSV".
 
-# Running the GUI
+# Running the GUI Locally
 
-The GUI consists of a front-end and a back-end. This was set up this way to enable remotedly hosting the GUI, making it a website. This is also why there is an option to download the end file. This, however, does not mean the GUI is currently hosted on any machine. 
-
-The front-end is implemented in streamlit, and the back-end in FastAPI. Those packages where chosen because of their ease of use and modularity.
-
-To run the GUI, the user must clone the repository and run both the front-end and the back-end locally. Specified instructions and setup are explained in detail in the documentation for the GUI. There is also an option of running a containerized version of the GUI in Docker. The instructions are presented in the README of the repo and the code is in a branch called "Docker".
+To run the GUI, the user must clone the repository and run both the front-end and the back-end locally, each in their own terminal. Specified instructions and setup are explained in detail in the documentation for the GUI.
 
 After the setup is done, the user can run the CM Pipeline through the front-end.
 
+# Running the Containerized GUI
+
+There is also an option of running a containerized version of the GUI in Docker. The instructions are presented in the README of the repo and the code is in a branch called "Docker". The Dockerfile and docker-compose files are already present and automate the process of running both back and front-end in one singular container, that has two images that share the same filespace. 
+
+The GUI's front-end can be accessed through the same port and URL as running it locally.
 
 # Future Installments
 
