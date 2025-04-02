@@ -80,7 +80,7 @@ After the setup is done, the user can run the CM Pipeline through the front-end.
 
 # Running the Containerized GUI
 
-There is also an option of running a containerized version of the GUI in Docker. The instructions are presented in the README of the repo and the code is in a branch called "Docker". The Dockerfile and docker-compose files are already present and automate the process of running both back and front-end in one singular container, that has two images that share the same filespace. 
+There is also an option of running a containerized version of the GUI in Docker. The instructions are presented in the README of the repo and the code is in a branch called "Docker". The Dockerfile and docker-compose files are already present and automate the process of running both back and front-end in one singular container, creating two images that share the same filespace. It also downloads specific packages (miniconda) based on the users machine's architecture. 
 
 The GUI's front-end can be accessed through the same port and URL as running it locally.
 
