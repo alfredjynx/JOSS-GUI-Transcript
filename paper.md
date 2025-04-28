@@ -50,7 +50,7 @@ Clustering has broad applications. A user-friendly GUI lowers the barrier for en
 
 # The GUI - 
 
-The GUI consists of a front-end and a back-end to enable remote hosting of the GUI on a website. The front-end is implemented in Streamlit, and the back-end in FastAPI.
+The GUI consists of a front-end and a back-end to enable remote hosting of the GUI on a website. The front-end is implemented in Streamlit [@streamlit], and the back-end in FastAPI [@ramirez_fastapi_2018].
 
 ![GUI Setup for Leiden-CPM. \label{fig:Leiden-CPM}](./imgs/GUI-init.png)
 
@@ -94,3 +94,7 @@ Next steps include replacing the current WCC and CC options for the same post tr
 7. Peixoto, T., “The graph-tool python library”, figshare. (2014) DOI: 10.6084/m9.figshare.1164194
 
 8. Fortunato, S., Newman, M.E.J. 20 years of network community detection. Nat. Phys. 18, 848–850 (2022). https://doi.org/10.1038/s41567-022-01716-7
+
+9. Ramírez, S. (2018). FastAPI. Retrieved from https://fastapi.tiangolo.com/
+
+10. Streamlit Inc. (2019). Streamlit. Retrieved from https://streamlit.io/
