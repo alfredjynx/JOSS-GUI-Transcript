@@ -68,6 +68,10 @@ Files are be uploaded by the user, having an option of working from an existing 
 
 A containerized version of the GUI is available that relies on Docker. This is the preferred method of running the GUI. The instructions for this version are presented in the README of the repo. The Dockerfile and docker-compose files automate the process of running both back and front-end in one singular container, creating two images that share the same filespace. Specific packages from miniconda are downloaded based on the users machine's architecture. The GUI's front-end can be accessed through the same port and URL as a local installation.
 
+# Conclusions
+
+
+
 # Running the GUI Locally
 
 To run the GUI, the user must clone the repository and run both the front-end and the back-end locally, each in their own terminal. Instructions for setup are explained in the GUI REAME file, but this is not the reccomended setup. Once setup is complete, the user can run the CM Pipeline through the front-end.
@@ -76,6 +80,9 @@ To run the GUI, the user must clone the repository and run both the front-end an
 # Future Installments
 
 Next steps include replacing the current WCC and CC options for the same post treatment in the CM++ version.
+
+# Acknowledgements
+Work on this project was supported by funds from the Illinois:Insper Partnership.
 
 # References
 
