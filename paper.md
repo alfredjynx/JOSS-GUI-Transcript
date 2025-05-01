@@ -7,11 +7,9 @@ tags:
 authors:
   - name: Joao Alfredo Cardoso Lamy
     orcid: 0009-0005-4744-4754
-    equal-contrib: true
     affiliation: 1
   - name: Tomas Alessi
     orcid: 0009-0006-2658-5758
-    equal-contrib: true
     affiliation: 1
   - name: Tandy Warnow
     orcid: 0000-0001-7717-3514
@@ -22,6 +20,7 @@ authors:
   - name: Minhyuk Park
     orcid: 0000-0002-8676-7565
     affiliation: 2
+    corresponding: true
 affiliations:
  - name: Insper Instituto de Ensino e Pesquisa, Sao Paulo, Brazil
    index: 1
@@ -33,44 +32,42 @@ date: 7 March 2025
 bibliography: paper.bib
 ---
 
-# Introduction -
-Community detection (clustering) in networks has broad applications [@Fortunato2022]. Beyond the intuitive expectation that communities have greater edge density relative to network background, an important, but sometimes overlooked, quality of "good clusters" is that they should be well-connected [@park2023wellconnectedcommunitiesrealworldsynthetic;@traag2019louvain]. Well-connectedness can be achieved through post-clustering techniques such as the Connectivity Modifier (CM) [@Ramavarapu2024] and Well-Connected Clusters (WCC) [@park2024improved]. Here we describe a user-friendly GUI that enables clustering of a network and modification of the clustering to meet criteria for well-connectedness. The GUI reduces the burden of installation and the complexity of command line operations for non-expert users.
+# Introduction
+Community detection in networks has broad applications [@Fortunato2022]. However, beyond the intuitive expectation that communities have greater edge density relative to network background, an important, but sometimes overlooked, quality of "good clusters" is that they should be internally well-connected [@park2023wellconnectedcommunitiesrealworldsynthetic;@traag2019louvain]. Although different definitions of well-connectedness exist, well-connectedness based on cluster mincut size can be achieved through post-clustering techniques such as the Connectivity Modifier (CM) [@Ramavarapu2024] and Well-Connected Clusters (WCC) [@park2024improved]. Here, we present a user-friendly GUI that enables clustering of a network and an optional post-treatment of the clustering to enforce connectedness or well-connectedness. The GUI reduces the burden of installation and the complexity of command line operations for non-expert users.
 
-# The CM Pipeline - 
+# Background
+## The CM Pipeline
+CM was designed to enforce well-connectedness in clusters generated during a community detection process [@park2023wellconnectedcommunitiesrealworldsynthetic;@Ramavarapu2024]. The basis by which a cluster is considered well-connected is defined by its min-cut, the minimum number of edges that need to be removed in order for the cluster to be split. In the CM Pipeline, if the min-cut of a cluster is above a user-specified threshold, a cluster is considered well-connected. If not, then the min-cut is applied and the products of the cut (two clusters) are re-clustered and re-tested for their min-cuts until every community is well-connected. The threshold specified in the CM paper is the mild standard of $log_{10}n$, with $n$ being the number of nodes in the cluster but the pipeline allows users to specify their own criteria through custom functions.
 
-CM was developed to enforce well-connectedness in clusters generated during a community detection process [@park2023wellconnectedcommunitiesrealworldsynthetic;@Ramavarapu2024]. The basis by which a cluster is considered well-connected is defined by its min-cut, the minimum number of edges that need to be removed in order for the cluster to be split. In the CM Pipeline, if the min-cut of a cluster is above a user-specified threshold, a cluster is considered well-connected. If not, then the min-cut is applied and the products of the cut (two clusters) are re-clustered and re-tested for their min-cuts until every community is well-connected. The threshold specified in the CM paper is the mild standard of $log_{10}n$, with $n$ being the number of nodes in the cluster but the pipeline allows users to specify their own criteria through custom functions.
+## Well-Connected Clusters
+WCC is a simple modification of CM that omits the reclustering step.  In WCC, clusters are repeatedly split into two clusters until each cluster satisfies the required connectivity bound. [@park2024improved]. WCC is a viable alternative to post-processing with CM if re-clustering the subclusters is not desired. We show in Figure \autoref{fig:cpm-wcc} the effect of WCC on a Leiden-CPM clustering with resolution value 0.01. The initial Leiden clustering results in merging adjacent cliques into a single cluster on a ring-of-cliques network with 40 6-cliques. This is ameliorated through WCC post-treatment which enforces internal well-connectedness for each cluster.
 
-# The WCC Pipeline - 
+<!-- ![Leiden-CPM(0.01) on a ring of cliques (k=6, n=40) \label{fig:cpm}](./imgs/cpm.png){height="150pt"} -->
 
-WCC is a simple modification of CM that omits the reclustering step.  In WCC, clusters are repeatedly split into two clusters until each cluster satisfies the required connectivity bound. [@park2024improved]. WCC is a viable alternative to post-processing with CM if re-clustering the subclusters is not desired.
+<!-- ![Leiden-CPM(0.01) + WCC on a ring of cliques (k=6, n=40) \label{fig:cpm-wcc}](./imgs/cpm_wcc.png){height="150pt"} -->
 
-![Leiden-CPM(0.01) on a ring of cliques (k=6, n=40) \label{fig:cpm}](./imgs/cpm.png){height="100pt"}
+![\textbf{Leiden-CPM(0.01) without and with WCC treatment on a ring-of-cliques network (k=6, n=40)} Left: Zoomed in view of Leiden-CPM with resolution value 0.01 on a ring-of-cliques network with 40 6-cliques. Right: Zoomed in view of Leiden-CPM with resolution value 0.01 and post-treated using WCC on a ring-of-cliques network with 40 6-cliques. The visuzalization uses colors to denote different clusters. Leiden-CPM by itself merges adjacent cliques into a single large cluster whereas WCC post-treatment is able to separate out individual cliques into their own clusters.  \label{fig:cpm-wcc}](./imgs/cpm_wcc_side_by_side.png){height="150pt"}
 
-![Leiden-CPM(0.01) + WCC on a ring of cliques (k=6, n=40) \label{fig:cpm-wcc}](./imgs/cpm_wcc.png){height="100pt"}
+# Statement of need
+Clustering has broad applications. The selection of a clustering method and choice of parameter settings is often assisted by exploratory analysis. A user-friendly GUI enables such initial exploratory analysis and lowers the barrier for entry and . The GUI described here can also be used as an instructional tool in introductory classes on community detection.
 
-# Statement of need -
+# The GUI
+## GUI Architecture
+The GUI is modularized into front-end and back-end components to enable **remote hosting** of the GUI on a website. The GUI is implemented in Python leveraging Streamlit [@streamlit] for the front-end and FastAPI [@ramirez_fastapi_2018] for the back-end. We show in Figure \autoref{fig:gui-interface} the main interface for the GUI.
 
-Clustering has broad applications. The selection of a clustering method and choice of parameter settings is often assisted by exploratory analysis. A user-friendly GUI enables such initial exploratory analysis and lowers the barrier for entry and . The GUI described here can also be used as an instructional tool in introductory classes on community detection. 
+![\textbf{Main interface} Here, we show an example set of choices for clustering using the Leiden algorithm optimizing for modularity with 1 iterations. It applies no post-treatments but does enable the filtering for small clusters before returning the final clustering.  \label{fig:gui-interface}](./imgs/figure_1.png){height="180pt"}
 
-# The GUI - 
-
-The GUI is modularized into front-end and back-end components to enable **remote hosting** of the GUI on a website. The GUI is implemented in Python leveraging Streamlit [@streamlit] for the front-end and FastAPI [@ramirez_fastapi_2018] for the back-end.
-
-![GUI Setup for Leiden-CPM. \label{fig:Leiden-CPM}](./imgs/figure_1.png){height="180pt"}
-
-At present, the GUI provides support for 4 different clustering algorithms \autoref{fig:Algorithms}: Leiden-CPM (Constant Potts Model) [@traag2019louvain;@traag2011narrow] \autoref{fig:Leiden-CPM}, Leiden-Modularity [@traag2019louvain], Infomap [@Rosvall2008] and Stochastic Block Models (SBM) [@peixoto_graph-tool_2014]. 
-
-
-Each algorithm takes a set of parameters that must be specified before running the pipeline. The parameters are explained in the CM Pipeline documentation and in the CM-GUI documentation.
+We show the different options the GUI enables in Figure \autoref{fig:gui-options}. At present, the GUI provides support for 4 different clustering algorithms: Leiden-CPM (Constant Potts Model) [@traag2019louvain;@traag2011narrow], Leiden-Modularity [@traag2019louvain], Infomap [@Rosvall2008], and Stochastic Block Models (SBM) [@peixoto_graph-tool_2014]. Each algorithm takes a set of parameters that must be specified before running the pipeline. The parameters are explained in the CM Pipeline documentation and in the CM-GUI documentation.
 
 The user is required to upload a network as an edge list, which is then clustered using the method selected by the user, after which well-connectedness is enforced. The user may also upload a pre-computed clustering of the network and skip the initial clustering stage of the CM Pipeline.  Results can be downloaded at the end of the run by clicking the "Download Clustering data as CSV" button.
 
-![GUI Algorithms. \label{fig:Algorithms}](./imgs/Algorithms.png){height="100pt"}
+<!-- ![GUI Algorithms. \label{fig:Algorithms}](./imgs/Algorithms.png){height="150pt"} -->
 
-![GUI Existing Clustering File Upload Box. \label{fig:ExistingClustering}](./imgs/ExistingClustering.png){height="100pt"}
+<!-- ![GUI Existing Clustering File Upload Box. \label{fig:ExistingClustering}](./imgs/ExistingClustering.png){height="150pt"} -->
 
-# Running the GUI
+![\textbf{Example options for GUI} Left: Choices for clustering algorithms. Right: Optional upload of an existing clustering. In the GUI, the algorithm choices dropdown menu specifies the clustering algorithm for the initial clustering and CM post-treatment if specified. If the user specifies that they have their own pre-existing clustering which they can upload, then the algorithm dropdown menu only affects the choice of clustering algorithm in the CM step. \label{fig:gui-options}](./imgs/gui_options_side_by_side.png){height="150pt"}
 
+## Running the GUI
 To run the CM Pipeline GUI the user has two options: a Docker installation or a manual install.
 
 The Docker version is the preferred method of running the GUI since it simplifies installation; some of the packages necessary for running the CM Pipeline require specific machine conditions and specific operating systems. The Dockerfile and docker-compose files automate the process of installing every required package inside a virtual machine, making it accessible to more users and across operating systems. If the user chooses to install every required package locally, the back-end and front-end need to be run in separate terminals. In both cases, the user can access the GUI via the front-end URL.
