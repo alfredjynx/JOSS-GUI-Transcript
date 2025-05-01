@@ -1,5 +1,5 @@
 ---
-title: 'Well Connected Clustering GUI'
+title: 'Enabling Easy Access to Connectivity Modifier through a Grahphical User Interface'
 tags:
   - Python
   - Data Science
@@ -42,7 +42,11 @@ CM was developed to enforce well-connectedness in clusters generated during a co
 
 # The WCC Pipeline - 
 
-WCC is a simple modification of CM that omits the reclustering step.  In WCC, clusters are repeatedly split into two clusters until each cluster satisfies the required connectivity bound. [@park2024improved] **@min what about a sentence about why you would use WCC instead of CM?**
+WCC is a simple modification of CM that omits the reclustering step.  In WCC, clusters are repeatedly split into two clusters until each cluster satisfies the required connectivity bound. [@park2024improved]. WCC is a viable alternative to post-processing with CM if re-clustering the subclusters is not desired.
+
+![Leiden-CPM(0.01) on a ring of cliques (k=6, n=40) \label{fig:cpm}](./imgs/cpm.png){height="100pt"}
+
+![Leiden-CPM(0.01) + WCC on a ring of cliques (k=6, n=40) \label{fig:cpm-wcc}](./imgs/cpm_wcc.png){height="100pt"}
 
 # Statement of need -
 
@@ -52,26 +56,27 @@ Clustering has broad applications. The selection of a clustering method and choi
 
 The GUI is modularized into front-end and back-end components to enable **remote hosting** of the GUI on a website. The GUI is implemented in Python leveraging Streamlit [@streamlit] for the front-end and FastAPI [@ramirez_fastapi_2018] for the back-end.
 
-![GUI Setup for Leiden-CPM. \label{fig:Leiden-CPM}](./imgs/GUI-init.png)
+![GUI Setup for Leiden-CPM. \label{fig:Leiden-CPM}](./imgs/figure_1.png){height="180pt"}
 
 At present, the GUI provides support for 4 different clustering algorithms \autoref{fig:Algorithms}: Leiden-CPM (Constant Potts Model) [@traag2019louvain;@traag2011narrow] \autoref{fig:Leiden-CPM}, Leiden-Modularity [@traag2019louvain], Infomap [@Rosvall2008] and Stochastic Block Models (SBM) [@peixoto_graph-tool_2014]. 
 
-![GUI Algorithms. \label{fig:Algorithms}](./imgs/Algorithms.png)
 
 Each algorithm takes a set of parameters that must be specified before running the pipeline. The parameters are explained in the CM Pipeline documentation and in the CM-GUI documentation.
 
 The user is required to upload a network as an edge list, which is then clustered using the method selected by the user, after which well-connectedness is enforced. The user may also upload a pre-computed clustering of the network and skip the initial clustering stage of the CM Pipeline.  Results can be downloaded at the end of the run by clicking the "Download Clustering data as CSV" button.
 
-![GUI Existing Clustering File Upload Box. \label{fig:ExistingClustering}](./imgs/ExistingClustering.png)
+![GUI Algorithms. \label{fig:Algorithms}](./imgs/Algorithms.png){height="100pt"}
+
+![GUI Existing Clustering File Upload Box. \label{fig:ExistingClustering}](./imgs/ExistingClustering.png){height="100pt"}
 
 # Running the GUI
 
-To run the CM Pipeline GUI the user has two options: a Docker installation or a manual install. 
+To run the CM Pipeline GUI the user has two options: a Docker installation or a manual install.
 
 The Docker version is the preferred method of running the GUI since it simplifies installation; some of the packages necessary for running the CM Pipeline require specific machine conditions and specific operating systems. The Dockerfile and docker-compose files automate the process of installing every required package inside a virtual machine, making it accessible to more users and across operating systems. If the user chooses to install every required package locally, the back-end and front-end need to be run in separate terminals. In both cases, the user can access the GUI via the front-end URL.
 
 # Conclusions
-Next steps include replacing the current WCC and CC options for the same post treatment in the CM++ version.
+The GUI for cm pipeline enables more avenues of accessing CM that is not limited to navigating the terminal. Future work includes a streamlined preliminary downstream analyses such as retrieving basic cluster statistics or visualizations through the GUI on the clusterings produced.
 
 # Acknowledgements
 Work on this project was supported by funds from the Illinois-Insper Partnership.
