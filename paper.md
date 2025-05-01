@@ -73,7 +73,7 @@ To run the CM Pipeline GUI the user has two options: a Docker installation or a 
 The Docker version is the preferred method of running the GUI since it simplifies installation; some of the packages necessary for running the CM Pipeline require specific machine conditions and specific operating systems. The Dockerfile and docker-compose files automate the process of installing every required package inside a virtual machine, making it accessible to more users and across operating systems. If the user chooses to install every required package locally, the back-end and front-end need to be run in separate terminals. In both cases, the user can access the GUI via the front-end URL.
 
 # Conclusions
-The GUI for cm pipeline enables more avenues of accessing CM that is not limited to navigating the terminal. Future work includes a streamlined preliminary downstream analyses such as retrieving basic cluster statistics or visualizations through the GUI on the clusterings produced.
+The GUI for cm pipeline enables more avenues of accessing CM that is not limited to navigating the terminal. Future work includes enabling preliminary downstream analyses such as retrieving basic cluster statistics or visualizations through the GUI on the clusterings produced.
 
 # Acknowledgements
 Work on this project was supported by funds from the Illinois-Insper Partnership.
