@@ -78,7 +78,7 @@ We recommend the Docker install as it simplifies installation of necessary packa
 The GUI makes the CM pipeline accessible to entry-level users and can be used as an instructional tool. The size of the networks that can be handled by this GUI depend on the hardware that it is installed on. Future work planned will include retrieving basic cluster statistics and visualizations through the GUI on the clusterings produced.
 
 # Acknowledgements
-Work on this project was supported by funds from the Illinois-Insper Partnership.
+We would like to thank Ian Wei Chen and The-Anh Vu-Le for their help in testing the software. Work on this project was supported by funds from the Illinois-Insper Partnership.
 
 # References
 <!-- 
