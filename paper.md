@@ -1,5 +1,5 @@
 ---
-title: 'Enabling Easy Access to Connectivity Modifier through a Grahphical User Interface'
+title: 'A Graphical User Interface for Well-Connected Clusters'
 tags:
   - Python
   - Data Science
