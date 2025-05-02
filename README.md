@@ -1,4 +1,4 @@
-## CM-GUI: User-Friendly application of the CM Pipeline
+## CM-GUI: User-Friendly Access to the CM Pipeline
 
 This repo contains the transcript for a paper that details the software implementation of a Graphical User Interface for the CM Pipeline. 
 
