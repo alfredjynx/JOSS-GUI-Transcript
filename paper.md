@@ -37,7 +37,7 @@ Community detection in networks has broad applications [@Fortunato2022]. Beyond 
 
 # Background
 ## The CM pipeline
-CM was designed to enforce well-connectedness in clusters generated during a community detection process [@park2024well;@Ramavarapu2024]. The basis by which a cluster is considered well-connected is defined by the size of its min-cut, the smallest set of edges that need to be removed in order for the cluster to be split. In the CM pipeline, if the min-cut of a cluster is above a user-specified threshold, a cluster is considered well-connected. If not, then the min-cut is removed and the products of the cut (two clusters) are re-clustered and re-tested for their min-cuts until every community is well-connected. The threshold specified in the CM paper is the mild standard of $log_{10}n$, with $n$ being the number of nodes in the cluster but the pipeline allows users to specify their own criteria through custom functions.
+CM was designed to enforce well-connectedness in clusters generated during a community detection process [@park2024well;@Ramavarapu2024]. The basis by which a cluster is considered well-connected is defined by the size of its min-cut, the smallest set of edges that need to be removed in order for the cluster to be split. In the CM pipeline, if the min-cut of a cluster is above a user-specified threshold, a cluster is considered well-connected. If not, then the min-cut is removed and the products of the cut (two clusters) are re-clustered and re-tested for their min-cuts until every community is well-connected. The threshold specified in [@park2024well] is a mild standard of $log_{10}n$, with $n$ being the number of nodes in the cluster but the pipeline allows users to specify their own criteria through custom functions.
 
 ## Well-Connected Clusters
 <!-- WCC is a simple modification of CM that omits the reclustering step.  In WCC, clusters are repeatedly split into two clusters until each cluster satisfies the required connectivity bound. [@park2024improved]. WCC is a viable alternative to post-processing with CM if re-clustering the subclusters is not desired. We illustrate in \autoref{fig:cpm-wcc} the effect of WCC on a Leiden-CPM clustering with resolution value 0.01. The initial Leiden clustering results in merging adjacent cliques into a single cluster (left: five green cliques) on a ring-of-cliques network with 40 6-cliques. This is corrected through WCC post-treatment which enforces internal well-connectedness for each cluster. -->
@@ -47,7 +47,7 @@ One use of the WCC or CM post-treatment is to address the “resolution limit”
 
 <!-- ![Leiden-CPM(0.01) + WCC on a ring of cliques (k=6, n=40) \label{fig:cpm-wcc}](./imgs/cpm_wcc.png){height="150pt"} -->
 
-![\textbf{Leiden-CPM(0.01) without and with WCC treatment on a ring-of-cliques network (40 cliques with 6 nodes each)} Left: Zoomed in view of Leiden-CPM with resolution value 0.01. Right: Zoomed in view of Leiden-CPM with resolution value 0.01 and post-treated using WCC. The visuzalization uses colors to denote different clusters. Leiden-CPM by itself merges adjacent cliques into a single large cluster whereas WCC post-treatment is able to separate out individual cliques into their own clusters.  \label{fig:cpm-wcc}](./imgs/cpm_wcc_side_by_side.png){height="150pt"}
+![\textbf{Leiden-CPM(0.01) without and with WCC treatment on a ring-of-cliques network (40 cliques with 6 nodes each)} Left: Zoomed in view of Leiden-CPM with resolution value 0.01. Right: Zoomed in view of Leiden-CPM with resolution value 0.01 and post-treated using WCC. The visualization uses colors to denote different clusters. Leiden-CPM by itself merges adjacent cliques into a single large cluster whereas WCC post-treatment is able to separate out individual cliques into their own clusters.  \label{fig:cpm-wcc}](./imgs/cpm_wcc_side_by_side.png){height="150pt"}
 
 # Statement of need
 Clustering has broad applications. The selection of a clustering method and choice of parameter settings is often assisted by exploratory analysis. A user-friendly GUI enables such initial exploratory analysis and lowers the barrier for entry. The GUI described here can also be used as an instructional tool in introductory classes on community detection.
@@ -66,12 +66,12 @@ The user is required to upload a network as an edge list, which is then clustere
 
 <!-- ![GUI Existing Clustering File Upload Box. \label{fig:ExistingClustering}](./imgs/ExistingClustering.png){height="150pt"} -->
 
-![\textbf{Example options for GUI} Left: Choices for clustering algorithms. Right: Choices for post-treatment. In the GUI, the algorithm choices dropdown menu specifies the clustering algorithm for the initial clustering. The post-treatment menu specifies which, if any, post-treatment should be applied to the clustering. If the user specifies CM as post-treatment, then the chosen algorithm used for CM treatment unless given an existing clustering. \label{fig:gui-options}](./imgs/options_side_by_side.png){height="150pt"}
+![\textbf{Example options for GUI} Left: Choices for clustering algorithms. Right: Choices for post-treatment. In the GUI, the algorithm choices dropdown menu specifies the clustering algorithm for the initial clustering. The post-treatment specifies which, if any, post-treatment should be applied to the clustering. If an existing clustering is not uploaded, the algorithm must be specified to use CM as post-treatment. \label{fig:gui-options}](./imgs/options_side_by_side.png){height="150pt"}
 
 ## Installing the GUI
 To install the CM pipeline GUI, the user has two options: via Docker or a manual install.
 
-We recommend the Docker install as it simplifies installation of necessary packages for running the GUI. A local installation option without Docker is available and descirbed in the README of the repository.
+We recommend the Docker install as it simplifies installation of necessary packages for running the GUI. A local installation option without Docker is available and described in the README of the repository.
 <!-- The Dockerfile and docker-compose files automate the process of installing every required package inside a virtual machine, making it accessible to more users and across operating systems. If the user chooses to install every required package locally, the back-end and front-end need to be run in separate terminals. In both cases, the user can access the GUI via the front-end URL. -->
 
 # Conclusions
