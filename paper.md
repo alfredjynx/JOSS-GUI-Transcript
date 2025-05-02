@@ -53,7 +53,7 @@ Clustering has broad applications. The selection of a clustering method and choi
 
 # The GUI
 ## GUI Architecture
-The GUI is modularized into front-end and back-end components to enable **remote hosting** of the GUI on a website. The GUI is implemented in Python leveraging Streamlit [@streamlit] for the front-end and FastAPI [@ramirez_fastapi_2018] for the back-end. We show in Figure \autoref{fig:gui-interface} the main interface for the GUI.
+The GUI is modularized into front-end and back-end components. The GUI is implemented in Python leveraging Streamlit [@streamlit] for the front-end and FastAPI [@ramirez_fastapi_2018] for the back-end and supports **remote hosting** on a website. We show in Figure \autoref{fig:gui-interface} the main interface for the GUI.
 
 ![\textbf{Main interface} Here, we show an example set of choices for clustering using the Leiden algorithm optimizing for modularity with 1 iterations. It applies no post-treatments but does enable the filtering for small clusters before returning the final clustering.  \label{fig:gui-interface}](./imgs/figure_1.png){height="180pt"}
 
