@@ -57,7 +57,7 @@ The GUI is modularized into front-end and back-end components. The GUI is implem
 
 ![\textbf{Main interface} Here, we show an example set of choices for clustering using the Leiden algorithm optimizing for modularity with 1 iterations. It applies no post-treatments but does enable the filtering for small clusters before returning the final clustering.  \label{fig:gui-interface}](./imgs/figure_1.png){height="180pt"}
 
-We show the different options the GUI enables in Figure \autoref{fig:gui-options}. At present, the GUI provides support for 4 different clustering algorithms: Leiden-CPM (Constant Potts Model) [@traag2019louvain;@traag2011narrow], Leiden-Modularity [@traag2019louvain], Infomap [@Rosvall2008], and Stochastic Block Models (SBM) [@peixoto_graph-tool_2014]. Each algorithm takes a set of parameters that must be specified before running the pipeline. The parameters are explained in the CM Pipeline documentation and in the CM-GUI documentation.
+In Figure \autoref{fig:gui-options}, we show the different clustering options available in the GUI. At present, support is provided for 4 different clustering algorithms: Leiden-CPM (Constant Potts Model) [@traag2019louvain;@traag2011narrow], Leiden-Modularity [@traag2019louvain], Infomap [@Rosvall2008], and Stochastic Block Models (SBM) [@peixoto_graph-tool_2014]. Each algorithm takes a set of parameters that must be specified before running the pipeline. The parameters are explained in the CM Pipeline documentation and in the CM-GUI documentation.
 
 The user is required to upload a network as an edge list, which is then clustered using the method selected by the user, after which well-connectedness is enforced. The user may also upload a pre-computed clustering of the network and skip the initial clustering stage of the CM Pipeline.  Results can be downloaded at the end of the run by clicking the "Download Clustering data as CSV" button.
 
@@ -67,13 +67,13 @@ The user is required to upload a network as an edge list, which is then clustere
 
 ![\textbf{Example options for GUI} Left: Choices for clustering algorithms. Right: Optional upload of an existing clustering. In the GUI, the algorithm choices dropdown menu specifies the clustering algorithm for the initial clustering and CM post-treatment if specified. If the user specifies that they have their own pre-existing clustering which they can upload, then the algorithm dropdown menu only affects the choice of clustering algorithm in the CM step. \label{fig:gui-options}](./imgs/gui_options_side_by_side.png){height="150pt"}
 
-## Running the GUI
-To run the CM Pipeline GUI the user has two options: a Docker installation or a manual install.
+## Installing the GUI
+To install the CM Pipeline GUI the user has two options: via Docker or a manual install.
 
-The Docker version is the preferred method of running the GUI since it simplifies installation; some of the packages necessary for running the CM Pipeline require specific machine conditions and specific operating systems. The Dockerfile and docker-compose files automate the process of installing every required package inside a virtual machine, making it accessible to more users and across operating systems. If the user chooses to install every required package locally, the back-end and front-end need to be run in separate terminals. In both cases, the user can access the GUI via the front-end URL.
+The Docker version is the preferred method of running the GUI since it simplifies installation of some of the packages necessary that require specific machine conditions and specific operating systems. The Dockerfile and docker-compose files automate the process of installing every required package inside a virtual machine, making it accessible to more users and across operating systems. If the user chooses to install every required package locally, the back-end and front-end need to be run in separate terminals. In both cases, the user can access the GUI via the front-end URL.
 
 # Conclusions
-The GUI for cm pipeline enables more avenues of accessing CM that is not limited to navigating the terminal. Future work includes enabling preliminary downstream analyses such as retrieving basic cluster statistics or visualizations through the GUI on the clusterings produced.
+The GUI makes the CM Pipeline accessible to entry-level users and can be used as an instructional tool. The size of the networks that can be handled by this GUI depend on the hardware that it is installed on. Future work planned will include retrieving basic cluster statistics and visualizations through the GUI on the clusterings produced.
 
 # Acknowledgements
 Work on this project was supported by funds from the Illinois-Insper Partnership.
